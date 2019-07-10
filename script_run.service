@@ -1,0 +1,15 @@
+[Unit]
+Description=your script description
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=full_path_of_your_script
+Restart=on-failure
+RestartSec=60
+StandardOutput=syslog
+StandardError=syslog
+User=your_linux_user
+
+[Install]
+WantedBy=multi-user.target

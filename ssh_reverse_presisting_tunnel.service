@@ -1,0 +1,13 @@
+[Unit]
+Description=reverse port forwarding autossh
+After=network.target
+
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ssh -vvv -g -N -T -o "ServerAliveInterval 10" -o "ExitOnForwardFailure yes" -R port_number:localhost:22 host_username@host_public_ip
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
